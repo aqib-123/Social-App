@@ -37,7 +37,8 @@ router.get(
         res.json(profile);
       })
       .catch(err => res.status(404).json(err));
-  });
+  }
+);
 
 // @route   GET api/profile/all
 // @desc    Get all profiles
@@ -114,7 +115,7 @@ router.post(
       // Return any errors with 400 status
       return res.status(400).json(errors);
     }
- 
+
     // Get fields
     const profileFields = {};
     profileFields.user = req.user.id;
@@ -131,7 +132,7 @@ router.post(
       profileFields.skills = req.body.skills.split(',');
     }
 
-    // Social 
+    // Social
     profileFields.social = {};
     if (req.body.youtube) profileFields.social.youtube = req.body.youtube;
     if (req.body.twitter) profileFields.social.twitter = req.body.twitter;
